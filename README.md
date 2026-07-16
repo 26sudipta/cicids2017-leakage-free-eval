@@ -35,11 +35,11 @@ Then follow `data/README.md` to download the datasets — none are included in t
 
 ## Datasets used
 
-| Version | Source |
-|---|---|
-| Original CICIDS2017 | https://www.unb.ca/cic/datasets/ids-2017.html |
-| WTMC2021-corrected (Engelen et al. 2021) | https://intrusion-detection.distrinet-research.be/WTMC2021/ |
-| LYCOS-IDS2017 (Rosay et al.) | linked from the Rosay et al. paper, DOI 10.1145/3486622.3493973 |
+| Version                                  | Source                                                          |
+| ---------------------------------------- | --------------------------------------------------------------- |
+| Original CICIDS2017                      | https://www.unb.ca/cic/datasets/ids-2017.html                   |
+| WTMC2021-corrected (Engelen et al. 2021) | https://intrusion-detection.distrinet-research.be/WTMC2021/     |
+| LYCOS-IDS2017 (Rosay et al.)             | linked from the Rosay et al. paper, DOI 10.1145/3486622.3493973 |
 
 ## Status
 

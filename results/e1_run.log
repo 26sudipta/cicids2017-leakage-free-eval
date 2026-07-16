@@ -1,0 +1,10 @@
+[18:40:12] Found 8 CSVs
+[18:40:13]   loaded Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv  (225745, 78)
+[18:40:15]   loaded Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv  (286467, 78)
+[18:40:17]   loaded Friday-WorkingHours-Morning.pcap_ISCX.csv  (191033, 78)
+[18:40:21]   loaded Monday-WorkingHours.pcap_ISCX.csv  (529918, 78)
+[18:40:23]   loaded Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv  (288602, 78)
+[18:40:24]   loaded Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv  (170366, 78)
+[18:40:27]   loaded Tuesday-WorkingHours.pcap_ISCX.csv  (445909, 78)
+[18:40:33]   loaded Wednesday-workingHours.pcap_ISCX.csv  (692703, 78)
+[18:40:33] Concatenated: (2830743, 78)
