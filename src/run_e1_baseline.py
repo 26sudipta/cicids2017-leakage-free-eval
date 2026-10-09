@@ -2,7 +2,7 @@
 E1 - Baseline reproduction on ORIGINAL CICIDS2017 (MachineLearningCVE, 78 features).
 
 Goal: reproduce the ~98% random-split accuracy that the base paper (and dozens of
-others) report, so that later experiments (E2 corrected data, E3/E3b temporal /
+others) report, so that later experiments (E2 corrected data, E3/E4 temporal /
 leakage-free splits) can show how much of that number is an artifact.
 
 Every preprocessing decision below is annotated with WHY, because the whole paper
@@ -25,6 +25,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score, f1_score
+# Eq. (2) macro-F1 over C+. Harmless here (a stratified split puts all 15 classes
+# in test, so C+ == the full label set) but pinned so the definition is identical
+# across E1/E2/E3/E4. See src/macro_f1.py.
+from macro_f1 import macro_f1_cplus, weighted_f1_cplus
 
 # ---- paths -----------------------------------------------------------------
 # Folder holding the 8 original CICIDS2017 MachineLearningCVE CSVs.
@@ -216,11 +220,12 @@ def run():
             clf.fit(Xf, yf)
             pred = clf.predict(Xte)
             acc = accuracy_score(yte, pred)
-            mf1 = f1_score(yte, pred, average="macro")
-            wf1 = f1_score(yte, pred, average="weighted")
+            mf1, n_cplus = macro_f1_cplus(yte, pred)
+            wf1 = weighted_f1_cplus(yte, pred)
             row = {"model": name, "accuracy": acc, "macro_f1": mf1,
+                   "n_cplus": n_cplus,
                    "weighted_f1": wf1, "train_test_sec": round(time.time() - ts, 1)}
-            log(f"{name:20s} acc={acc:.4f}  macroF1={mf1:.4f}  "
+            log(f"{name:20s} acc={acc:.4f}  macroF1={mf1:.4f} (|C+|={n_cplus})  "
                 f"weightedF1={wf1:.4f}  ({row['train_test_sec']}s)")
         except Exception as e:  # keep going if one model OOMs/fails
             row = {"model": name, "accuracy": np.nan, "macro_f1": np.nan,

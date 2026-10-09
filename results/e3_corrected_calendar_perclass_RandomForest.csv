@@ -1,0 +1,19 @@
+,precision,recall,f1-score,support,train_support,status,FPR
+BENIGN,0.7937853804932823,1.0,0.8850394134386302,546449.0,928771.0,ok,0.7599856525672803
+Bot,0.0,0.0,0.0,738.0,0.0,ZERO_TRAIN (unlearnable),0.0
+DDoS,0.0,0.0,0.0,95123.0,0.0,ZERO_TRAIN (unlearnable),0.0
+DoS GoldenEye,0.0,0.0,0.0,0.0,7567.0,ZERO_TEST (not evaluated),0.00040777805963106313
+DoS Hulk,0.0,0.0,0.0,0.0,158469.0,ZERO_TEST (not evaluated),0.060735746179296876
+DoS Slowhttptest,0.0,0.0,0.0,0.0,1731.0,ZERO_TEST (not evaluated),0.0
+DoS slowloris,0.0,0.0,0.0,0.0,3595.0,ZERO_TEST (not evaluated),0.0
+FTP-Patator,0.0,0.0,0.0,0.0,3973.0,ZERO_TEST (not evaluated),0.0
+Heartbleed,0.0,0.0,0.0,0.0,11.0,ZERO_TEST (not evaluated),0.0
+Infiltration,0.0,0.0,0.0,32.0,0.0,ZERO_TRAIN (unlearnable),0.0
+PortScan,0.0,0.0,0.0,90710.0,0.0,ZERO_TRAIN (unlearnable),0.0
+SSH-Patator,0.0,0.0,0.0,0.0,2980.0,ZERO_TEST (not evaluated),0.0
+Web Attack - Brute Force,0.0,0.0,0.0,151.0,0.0,ZERO_TRAIN (unlearnable),0.0
+Web Attack - Sql Injection,0.0,0.0,0.0,12.0,0.0,ZERO_TRAIN (unlearnable),0.0
+Web Attack - XSS,0.0,0.0,0.0,27.0,0.0,ZERO_TRAIN (unlearnable),0.0
+accuracy,0.7452505448405847,0.7452505448405847,0.7452505448405847,0.7452505448405847,,,
+macro avg,0.05291902536621882,0.06666666666666667,0.05900262756257535,733242.0,,,
+weighted avg,0.5915689872991095,0.7452505448405847,0.6595761050705307,733242.0,,,

@@ -55,7 +55,7 @@ you used, swapping the prepped-array and label-class files for the `e2_*` versio
 Based on Engelen's own Table II, correcting the *labels* tends to leave aggregate accuracy /
 weighted-F1 ~unchanged (still ~0.99) while **per-class F1 stays flat or improves** — because the
 correction removes the mislabelled artefact flows the model was overfitting. The genuine
-performance *collapse* the paper argues for is expected in **E3/E3b (the leakage-free split)**,
+performance *collapse* the paper argues for is expected in **E3/E4 (the leakage-free split)**,
 not here. E2's job is to show that aggregate metrics are blind to a 20%+ change in the data.
 
 ## Comparing E1 vs E2 (the actual deliverable)

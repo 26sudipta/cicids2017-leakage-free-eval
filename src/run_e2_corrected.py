@@ -46,6 +46,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score, f1_score
+# Eq. (2) macro-F1 over C+. Harmless here (a stratified split puts all 15 classes
+# in test, so C+ == the full label set) but pinned so the definition is identical
+# across E1/E2/E3/E4. See src/macro_f1.py.
+from macro_f1 import macro_f1_cplus, weighted_f1_cplus
 
 # ---- paths -----------------------------------------------------------------
 # Folder holding the 5 corrected WTMC2021 day-CSVs. Repo-relative default so it is portable.
@@ -243,11 +247,12 @@ def run():
             clf.fit(Xf, yf)
             pred = clf.predict(Xte)
             acc = accuracy_score(yte, pred)
-            mf1 = f1_score(yte, pred, average="macro")
-            wf1 = f1_score(yte, pred, average="weighted")
+            mf1, n_cplus = macro_f1_cplus(yte, pred)
+            wf1 = weighted_f1_cplus(yte, pred)
             row = {"model": name, "accuracy": acc, "macro_f1": mf1,
+                   "n_cplus": n_cplus,
                    "weighted_f1": wf1, "train_test_sec": round(time.time() - ts, 1)}
-            log(f"{name:20s} acc={acc:.4f}  macroF1={mf1:.4f}  "
+            log(f"{name:20s} acc={acc:.4f}  macroF1={mf1:.4f} (|C+|={n_cplus})  "
                 f"weightedF1={wf1:.4f}  ({row['train_test_sec']}s)")
         except Exception as e:
             row = {"model": name, "accuracy": np.nan, "macro_f1": np.nan,

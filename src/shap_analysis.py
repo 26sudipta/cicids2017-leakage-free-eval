@@ -8,7 +8,8 @@ that stay stable — this is the paper's interpretability contribution, not atte
 by Moczkodan & Ragab 2026 or Bouke et al. 2026 in this exact corrected-vs-original
 setting (see novelty-check-1-6-findings memory).
 
-TODO: implement — not yet run.
+SUPERSEDED (24 Jul): implemented as src/run_shap_e4.py — use that. This stub is kept
+only because the mounted folder blocks deletes from the sandbox; safe to delete manually.
 """
 
 import shap

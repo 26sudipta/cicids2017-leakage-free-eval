@@ -31,3 +31,6 @@ CLAUDE.md
 # Results: keep small metric tables, ignore large raw dumps
 results/raw/
 
+
+# Scratch test outputs
+results/_wtest
